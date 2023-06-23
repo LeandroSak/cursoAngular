@@ -1,0 +1,25 @@
+div{
+    width: var(--navbar-width);
+    background-color: aqua;
+    margin: 0;
+    height: calc(100vh - var(--toolbar-height));
+    position: fixed;
+}
+ul{
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+li{
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li a{
+    font-size: 30px;
+    text-decoration: none;
+    
+}
