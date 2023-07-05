@@ -1,0 +1,11 @@
+<section>
+  <div class="texto lorem">
+    <ul>
+      <li class="texto" *ngFor="let alumno of arrayAlumnos">
+        <div  [ngClass]="{'red': alumno.edad < 30 , 'blue': 30 <= alumno.edad && alumno.edad < 35, 'green': 35<=alumno.edad }">
+          <div [ngClass]=" alumno.email == '' ? 'sinemail' : 'conemail'">{{alumno.first_name}} {{alumno.last_name}}</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>

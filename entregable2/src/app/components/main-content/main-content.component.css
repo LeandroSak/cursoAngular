@@ -1,0 +1,49 @@
+section{
+    display: flex;
+    flex-direction: column;
+    margin-left: var(--navbar-width);
+    background-color: white;
+    height: calc(100vh - var(--toolbar-height));
+
+}
+
+.texto{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    justify-content: center;
+    align-items: center;
+}
+.lorem{
+    font-size: 30px;
+    text-align: center;
+    
+}
+li{
+    list-style: none;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+.blue{
+    color: blue;
+    background-color: yellow;
+}
+.red{
+    color: red;
+    background-color: antiquewhite;
+}
+.green{
+    color: green;
+    background-color: aliceblue;
+}
+.conemail{
+    font-style: italic;
+    text-decoration: overline;
+}
+.sinemail{
+    font-style: normal;
+    text-decoration: underline;
+}
