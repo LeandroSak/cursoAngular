@@ -1,0 +1,75 @@
+<section>
+      <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+            <form [formGroup]="userModel" class="row col-6 g-3 text-center mb-5" (ngSubmit)="onSubmit(userModel)" >
+            <div class="">
+              <label for="inputEmail" class="form-label">Email</label>
+              <input
+                formControlName="email"
+                type="email"
+                class="form-control"
+                id="inputEmail"
+                [class.is-invalid]="emailControl.touched && emailControl.invalid"
+                required
+              />
+              <div class="invalid-feedback">
+                El campo es requerido
+              </div>
+            </div>
+            <div class="">
+              <label for="imputNombre" class="form-label">Nombre</label>
+              <input
+                formControlName="nombre"
+                type="text"
+                class="form-control"
+                id="imputNombre"
+                [class.is-invalid]="nombreControl.touched && nombreControl.invalid"
+                required
+              />
+              <div class="invalid-feedback">
+                El campo es requerido
+              </div>
+            </div>
+            <div class="">
+              <label for="imputApellido" class="form-label">apellido</label>
+              <input
+                formControlName="apellido"
+                type="text"
+                class="form-control"
+                id="imputApellido"
+                [class.is-invalid]="apellidoControl.touched && apellidoControl.invalid"
+                required
+              />
+              <div class="invalid-feedback">
+                El campo es requerido
+              </div>
+            </div>
+            
+            <div class="">
+              <button type="submit" class="btn btn-primary">Agregar</button>
+            </div>
+          </form>
+          <div class="col-10">
+            <table class="table text-center">
+              <thead>
+                <tr>
+                  <th scope="col ">Nombre</th>
+                  <th scope="col">Apellido</th>
+                  <th scope="col">Email</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr *ngFor="let user of users">
+                  <td>{{user.nombre}}</td>
+                  <td>{{user.apellido}}</td>
+                  <td>{{user.email}}</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+</section>

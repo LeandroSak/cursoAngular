@@ -1,0 +1,10 @@
+div{
+    background-color: antiquewhite;
+    height: var(--toolbar-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    margin: 0;
+}
