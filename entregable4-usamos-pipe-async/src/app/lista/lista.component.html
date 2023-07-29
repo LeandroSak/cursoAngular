@@ -1,0 +1,13 @@
+
+<div *ngFor="let user of users">
+    <p> {{user?.name}}   </p>
+    <p>{{user?.email}}</p>
+    <br>
+</div>
+
+<h3>Async pipe</h3>
+<div *ngIf="usersss |async as us">
+    <p> {{us.name}}   </p>
+    <p>{{us.email}}</p>
+    <br>
+</div>
