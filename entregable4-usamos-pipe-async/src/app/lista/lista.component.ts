@@ -1,20 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { User, UserService } from '../user.service';
-import { Observable } from 'rxjs';
+import { Observable, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-lista',
   templateUrl: './lista.component.html',
   styleUrls: ['./lista.component.css']
 })
-export class ListaComponent {
+export class ListaComponent implements OnDestroy {
   public users : User[] = []
+  public destroyed = new Subject<boolean>();
   usersss: Observable<User | undefined>;
   constructor( private userService: UserService){
     
     this.userService.loadUsers();
 
-    this.userService.getUsers().subscribe({
+    this.userService.getUsers().pipe(takeUntil(this.destroyed)).subscribe({
       next:(user) =>{
         this.users=user
       }
@@ -22,7 +23,9 @@ export class ListaComponent {
 
     this.usersss=this.userService.getUserById(2)
     
-    
+  }
+  ngOnDestroy(): void {
+    this.destroyed.next(true)
   }
   
 
