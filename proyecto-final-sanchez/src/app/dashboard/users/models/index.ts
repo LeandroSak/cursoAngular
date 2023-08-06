@@ -1,21 +1,21 @@
-export interface Student {
+export interface User {
     id:number
     name:string,
     lastname:string,
     email:string,
-    age:number
+    password:string
 }
 
-export interface createStudent{
+export interface createUser{
     name:string,
     lastname:string,
     email:string,
-    age:number
+    password:string
 }
 
-export interface updateStudent{
+export interface updateUser{
     name?:string,
     lastname?:string,
     email?:string,
-    age?:number
+    password?:string
 }

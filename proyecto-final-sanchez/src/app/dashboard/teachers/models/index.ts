@@ -1,21 +1,18 @@
-export interface Student {
+export interface Teacher {
     id:number
     name:string,
     lastname:string,
     email:string,
-    age:number
 }
 
-export interface createStudent{
+export interface createTeacher{
     name:string,
     lastname:string,
     email:string,
-    age:number
 }
 
-export interface updateStudent{
+export interface updateTeacher{
     name?:string,
     lastname?:string,
     email?:string,
-    age?:number
 }

@@ -1,6 +1,11 @@
 <mat-drawer-container class="example-container" autosize>
     <mat-drawer mode="over" #drawer class="example-sidenav" mode="side">
-      
+      <mat-nav-list>
+          <a routerLink="dashboard/home" mat-list-item >Home</a>
+          <a routerLink="dashboard/users" mat-list-item >Usuarios</a>
+          <a routerLink="dashboard/teachers" mat-list-item >Profesores</a>
+          <a routerLink="dashboard/students" mat-list-item >Estudiantes</a>
+      </mat-nav-list>
     </mat-drawer>
   
     <div class="example-sidenav-content">
@@ -17,7 +22,7 @@
       </mat-toolbar>
   
       <main class="p-3">
-        <app-students></app-students>
+        <router-outlet></router-outlet>
       </main>
     </div>
   </mat-drawer-container>
