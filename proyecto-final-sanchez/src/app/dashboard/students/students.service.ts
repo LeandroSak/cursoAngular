@@ -1,33 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Student, createStudent, updateStudent } from './models';
-import { BehaviorSubject, Observable, take } from 'rxjs';
+import { BehaviorSubject, Observable, map, mergeMap, take } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import Swal from 'sweetalert2';
 
-
-
-const data : Student[]=[{
-  id:1,
-  name:"Juan",
-  lastname:"Perez",
-  email:"juan@email.com",
-  age:20
-},
-{
-  id:2,
-  name:"Maria",
-  lastname:"Molina",
-  email:"maria@mail.com",
-  age:21
-},
-{id:3,
-  name:"Jose",
-  lastname:"Sanchez",
-  email:"jose@mail.com",
-  age:21},
-{id:4,
-  name:"Claudia",
-  lastname:"Molina",
-  email:"claudia@mail.com",
-  age:31}]
 
 
 @Injectable({
@@ -37,50 +13,61 @@ export class StudentsService {
   private _students$ = new BehaviorSubject<Student[]>([]);
   private students$ = this._students$.asObservable();
 
-  constructor() { }
+  constructor(
+    private httpClient: HttpClient
+  ) { }
 
 
-
-
-  loadStudents():void{
-    this._students$.next(data)
+  loadStudents(): void {
+    this.httpClient.get<Student[]>('http://localhost:3000/students', {
+    }).subscribe({
+      next: (response) => {
+        this._students$.next(response);
+      }
+      , error: () => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error al cargar los estudiantes',
+          confirmButtonColor: '#673ab7'
+        })
+      }
+    })
   }
 
   getStudents(): Observable<Student[]> {
-    return this._students$;
+    return this.students$;
   }
 
 
 
   createStudent(student: createStudent): void {
+    this.httpClient.post<Student>('http://localhost:3000/students', student)
+      .pipe(
+        mergeMap((studentsCreate) => this.students$.pipe(
+          take(1),
+          map(
+            (arrayActual) => [...arrayActual, studentsCreate])
+        )
+        )
+      )
+      .subscribe({
+        next: (arrayActualizado) => {
+          this._students$.next(arrayActualizado);
+        }
+      })
+  }
 
-    this.students$.pipe(take(1)).subscribe({
-      next: (arrayActual) => {
-        this._students$.next([
-          ...arrayActual,
-          { ...student, id: arrayActual[arrayActual.length - 1].id + 1 },
-        ]);
-      },
-    });}
-
-    updateStudentById(id: number, usuarioActualizado: updateStudent): void {
-      this.students$.pipe(take(1)).subscribe({
-        next: (arrayActual) => {
-          this._students$.next(
-            arrayActual.map((student) =>
-            student.id === id ? { ...student, ...usuarioActualizado } : student
-            )
-          );
-        },
-      });
+  updateStudentById(id: number, usuarioActualizado: updateStudent): void {
+    this.httpClient.put('http://localhost:3000/students/' + id, usuarioActualizado).subscribe({
+      next: () => this.loadStudents(),
+    })
   }
 
 
   deleteStudentById(id: number): void {
-    this._students$.pipe(take(1)).subscribe({
-      next: (arrayActual) => {
-        this._students$.next(arrayActual.filter((student) => student.id !== id));
-      },
-    });
+    this.httpClient.delete('http://localhost:3000/students/' + id)
+      .subscribe({
+        next: () => this.loadStudents(),
+      })
   }
 }

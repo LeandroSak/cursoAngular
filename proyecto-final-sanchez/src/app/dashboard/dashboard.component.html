@@ -1,10 +1,11 @@
 <mat-drawer-container class="example-container" autosize>
     <mat-drawer mode="over" #drawer class="example-sidenav" mode="side">
       <mat-nav-list>
-          <a routerLink="dashboard/home" mat-list-item >Home</a>
-          <a routerLink="dashboard/users" mat-list-item >Usuarios</a>
-          <a routerLink="dashboard/teachers" mat-list-item >Profesores</a>
-          <a routerLink="dashboard/students" mat-list-item >Estudiantes</a>
+          <a routerLink="home" mat-list-item >Home</a>
+          <a routerLink="users" mat-list-item >Usuarios</a>
+          <a routerLink="teachers" mat-list-item >Profesores</a>
+          <a routerLink="students" mat-list-item >Estudiantes</a>
+          <a (click)="logout()" mat-list-item>Cerrar sesion</a>
       </mat-nav-list>
     </mat-drawer>
   

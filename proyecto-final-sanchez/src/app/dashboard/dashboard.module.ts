@@ -10,6 +10,7 @@ import { UsersModule } from './users/users.module';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { MatListModule } from '@angular/material/list'
+import { DashboardRoutingModule } from './dashboard-routing.module';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -24,7 +25,8 @@ import { MatListModule } from '@angular/material/list'
     TeachersModule,
     RouterModule,
     UsersModule,
-    MatListModule
+    MatListModule,
+    DashboardRoutingModule
   ],
   exports:[
     DashboardComponent

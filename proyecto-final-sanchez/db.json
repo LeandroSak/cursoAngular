@@ -1,0 +1,63 @@
+{
+  "users": [
+    {
+      "name": "test",
+      "email": "test@mail.com",
+      "password": "12345678",
+      "lastname": "test",
+      "token": "aG1Ptx4ZBtwJCAoyjxQy",
+      "id": 1
+    },
+    {
+      "name": "usuario",
+      "email": "b@hotmail.com",
+      "lastname": "uno",
+      "password": "12345678",
+      "token": "yFKPbM27383r8tikXLVZ",
+      "id": 2
+    }
+  ],
+  "teachers": [
+    {
+      "name": "profesor",
+      "email": "p1@email.com",
+      "lastname": "uno",
+      "id": 1
+    },
+    {
+      "name": "profesor",
+      "email": "p2@email.com",
+      "lastname": "dos",
+      "id": 2
+    },
+    {
+      "name": "profesor",
+      "email": "p3@email.com",
+      "lastname": "tres",
+      "id": 3
+    }
+  ],
+  "students": [
+    {
+      "name": "estudiante",
+      "email": "e1@email.com",
+      "age": 22,
+      "lastname": "uno",
+      "id": 1
+    },
+    {
+      "name": "estudiante",
+      "email": "e2@email.com",
+      "age": 22,
+      "lastname": "dos",
+      "id": 2
+    },
+    {
+      "name": "estudiante",
+      "email": "e3@email.com",
+      "age": 25,
+      "lastname": "tres",
+      "id": 3
+    }
+  ]
+}

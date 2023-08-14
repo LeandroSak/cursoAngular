@@ -4,7 +4,7 @@ import { TeachersComponent } from './teachers.component';
 import { TeachersDialogComponent } from './components/teachers-dialog/teachers-dialog.component';
 import { TeachersTableComponent } from './components/teachers-table/teachers-table.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-
+import { TeachersRoutingModule } from './teachers-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    TeachersRoutingModule
   ],
   exports:[
     TeachersComponent

@@ -4,7 +4,7 @@ import { UsersComponent } from './users.component';
 import { UsersDialogComponent } from './components/users-dialog/users-dialog.component';
 import { UsersTableComponent } from './components/users-table/users-table.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-
+import { UsersRoutingModule } from './users-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    UsersRoutingModule
   ],
   exports:[
     UsersComponent
