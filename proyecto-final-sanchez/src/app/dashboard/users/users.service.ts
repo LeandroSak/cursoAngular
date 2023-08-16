@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class UsersService {
   private _users$ = new BehaviorSubject<User[]>([]);
-  private users$ = this._users$.asObservable();
+  public users$ = this._users$.asObservable();
 
   constructor(
     private httpClient: HttpClient
@@ -33,7 +33,8 @@ export class UsersService {
   }
 
   getUsers(): Observable<User[]> {
-    return this.users$;
+    //return this.users$;
+    return this.httpClient.get<User[]>('http://localhost:3000/users');
   }
 
   createUser(user: createUser): void {
