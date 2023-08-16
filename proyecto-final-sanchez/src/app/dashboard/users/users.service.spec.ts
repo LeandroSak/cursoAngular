@@ -20,7 +20,7 @@ describe('UserService', () => {
     })
 
     
-    it('Si el login es valido el observable authUser$ debe emitir un valor', () => {
+    it('Se verifica la llamada a getUser y se equivale a que traiga 2 usuarios', () => {
 
 
 
