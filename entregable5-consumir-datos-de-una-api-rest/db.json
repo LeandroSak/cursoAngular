@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "name": "test",
+      "email": "test@mail.com",
+      "password": "12345678",
+      "lastname": "test",
+      "token": "aG1Ptx4ZBtwJCAoyjxQy",
+      "id": 1
+    },
+    {
+      "name": "usuario",
+      "email": "b@hotmail.com",
+      "lastname": "uno",
+      "password": "12345678",
+      "token": "yFKPbM27383r8tikXLVZ",
+      "id": 2
+    },
+    {
+      "name": "Usuario",
+      "email": "u2@email.com",
+      "lastname": "dos",
+      "password": "12345678",
+      "token": "UDbHzyeAiYLXlFb4jWrA",
+      "id": 3
+    },
+    {
+      "name": "USUARIO",
+      "email": "u3@email.com",
+      "lastname": "TRES",
+      "password": "12345678",
+      "token": "3fc3y03Q4F74yX4MyiQb",
+      "id": 4
+    }
+  ]
+}

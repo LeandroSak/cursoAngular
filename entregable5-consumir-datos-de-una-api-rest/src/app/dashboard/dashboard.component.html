@@ -1,0 +1,19 @@
+<mat-drawer-container class="example-container" autosize>
+    
+  
+    <div class="example-sidenav-content">
+      <mat-toolbar color="primary">
+        
+        <h1 class="d-flex justify-content-start align-items-center m-0 title-custom">My App</h1>
+       
+        <button (click)="logout()" mat-flat-button type="button">
+         
+          Cerrar sesion
+      </button>
+      </mat-toolbar>
+  
+      <main class="p-3">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </mat-drawer-container>
