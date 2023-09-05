@@ -1,6 +1,6 @@
 <h4 appTitleSize class="text-center">Estudiantes</h4>
-<div class="m-4 d-flex justify-content-end">
-    <button (click)="onCreateUser()" mat-flat-button color="primary" type="button">
+<div *ngIf="selectIsAdmin$ | async" class="m-4 d-flex justify-content-end">
+    <button (click)="onCreateStudent()" mat-flat-button color="primary" type="button">
         <mat-icon>add</mat-icon>
         Crear Estudiante
     </button>

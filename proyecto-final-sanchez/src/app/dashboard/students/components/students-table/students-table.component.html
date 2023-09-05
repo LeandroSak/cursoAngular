@@ -25,10 +25,10 @@
       <th mat-header-cell *matHeaderCellDef>Acciones</th>
       <td mat-cell *matCellDef="let student">
 
-        <button (click)="editStudent.emit(student)" mat-icon-button color="primary">
+        <button [disabled]="!(isAdmin$ | async)" (click)="editStudent.emit(student)" mat-icon-button color="primary">
           <mat-icon>edit</mat-icon>
         </button>
-        <button (click)="deleteStudent.emit(student)" mat-icon-button color="warn">
+        <button [disabled]="!(isAdmin$ | async)" (click)="deleteStudent.emit(student)" mat-icon-button color="warn">
           <mat-icon>delete</mat-icon>
         </button> 
       </td>

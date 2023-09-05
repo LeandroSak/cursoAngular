@@ -2,10 +2,10 @@
     <mat-drawer mode="over" #drawer class="example-sidenav" mode="side">
       <mat-nav-list>
           <a routerLink="home" mat-list-item >Home</a>
-          <a routerLink="users" mat-list-item >Usuarios</a>
-          <a routerLink="teachers" mat-list-item >Profesores</a>
+          <a *ngIf="selectIsAdmin$ | async" routerLink="users" mat-list-item >Usuarios</a>
           <a routerLink="students" mat-list-item >Estudiantes</a>
-          <a (click)="logout()" mat-list-item>Cerrar sesion</a>
+          <a routerLink="courses" mat-list-item >Cursos</a>
+          <a routerLink="inscriptions" mat-list-item >Inscripciones</a>
       </mat-nav-list>
     </mat-drawer>
   
@@ -19,7 +19,20 @@
         >
           <mat-icon>menu</mat-icon>
         </button>
-        <h1 class="d-flex justify-content-start align-items-center m-0 title-custom">My App</h1>
+        <div class=" div-custom">
+          <h1 class="d-flex justify-content-start align-items-center m-0 ">My App</h1>
+          <div >
+            <p class="d-flex justify-content-start align-items-center m-0 " *ngIf="authUser$ | async; let authUser "  >
+              {{ authUser?.name }} {{ authUser?.lastname }}
+            </p>
+  
+          </div>
+          <button (click)="logout()" mat-flat-button type="button">
+           
+            Cerrar sesion
+        </button>
+
+        </div>
       </mat-toolbar>
   
       <main class="p-3">

@@ -10,7 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { ControlErrorMessagePipe } from './pipes/control-error-message.pipe';
-
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -33,7 +33,8 @@ import { ControlErrorMessagePipe } from './pipes/control-error-message.pipe';
     MatTableModule,
     FullNamePipe,
     TitleSizeDirective,
-    ControlErrorMessagePipe
+    ControlErrorMessagePipe,
+    MatSelectModule
   ]
 })
 export class SharedModule { }

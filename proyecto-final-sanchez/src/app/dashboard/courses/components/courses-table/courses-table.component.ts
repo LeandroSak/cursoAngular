@@ -1,15 +1,15 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Student } from '../../models';
+import { Course } from '../../models';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { selectIsAdmin } from 'src/app/store/auth/auth.selectors';
 
 @Component({
-  selector: 'app-students-table',
-  templateUrl: './students-table.component.html',
-  styleUrls: ['./students-table.component.css']
+  selector: 'app-courses-table',
+  templateUrl: './courses-table.component.html',
+  styleUrls: ['./courses-table.component.css']
 })
-export class StudentsTableComponent {
+export class CoursesTableComponent {
 
   public isAdmin$: Observable<boolean>;
 
@@ -17,13 +17,14 @@ export class StudentsTableComponent {
    
     this.isAdmin$ = this.store.select(selectIsAdmin);
   }
-    displayedColumns: string[] = ['id', 'fullName', 'age', 'email', 'actions'];
+    displayedColumns: string[] = ['id', 'name', 'actions'];
     @Input()
-    dataSource: Student[] = [];
+    dataSource: Course[] = [];
   
     @Output()
-  deleteStudent = new EventEmitter<Student>();
+  deleteCourse = new EventEmitter<Course>();
 
   @Output()
-  editStudent = new EventEmitter<Student>();
+  editCourse = new EventEmitter<Course>();
 }
+

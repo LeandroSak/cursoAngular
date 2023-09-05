@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
-import { User } from './models';
+import { User, updateUser } from './models';
 import { UsersService } from './users.service';
 import { UsersDialogComponent } from './components/users-dialog/users-dialog.component';
 
@@ -34,7 +34,8 @@ export class UsersComponent {
               name: user.name,
               email: user.email,
               lastname: user.lastname,
-              password: user.password
+              password: user.password,
+              role: user.role
             }) }
           } 
         },
@@ -73,7 +74,7 @@ export class UsersComponent {
       .subscribe({
         next: (userUpdated) => {
           if (userUpdated) {
-            this.usersService.updateUserById(userToEdit.id, userUpdated);
+            this.usersService.updateUserById(userToEdit.id, userUpdated, userToEdit.token);
           }
         },
       });

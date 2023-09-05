@@ -4,19 +4,25 @@ export interface User {
     lastname:string,
     email:string,
     password:string,
-    token:string
+    token:string,
+    role: 'ADMINISTRADOR' | 'USUARIO';
 }
 
 export interface createUser{
     name:string,
     lastname:string,
     email:string,
-    password:string
+    password:string,
+    role: string;
+
 }
 
 export interface updateUser{
     name?:string,
     lastname?:string,
     email?:string,
-    password?:string
+    password?:string,
+    role?: string;
+    token:string,
+    
 }

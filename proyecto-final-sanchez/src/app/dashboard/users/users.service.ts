@@ -4,7 +4,7 @@ import { User, createUser, updateUser } from './models';
 import { HttpClient } from '@angular/common/http';
 import { generateRandomString } from 'src/app/shared/utils/tokenGenerate';
 import Swal from 'sweetalert2';
-
+import { environment } from 'src/app/environment/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class UsersService {
   ) { }
 
   loadUsers(): void {
-    this.httpClient.get<User[]>('http://localhost:3000/users', {
+    this.httpClient.get<User[]>(environment.baseUrl +'users', {
     }).subscribe({
       next: (response) => {
         this._users$.next(response);
@@ -33,13 +33,13 @@ export class UsersService {
   }
 
   getUsers(): Observable<User[]> {
-    //return this.users$;
-    return this.httpClient.get<User[]>('http://localhost:3000/users');
+    return this.users$;
+    
   }
 
   createUser(user: createUser): void {
     const token = generateRandomString(20);
-    this.httpClient.post<User>('http://localhost:3000/users', { ...user, token })
+    this.httpClient.post<User>(environment.baseUrl +'users', { ...user, token })
       .pipe(
         mergeMap((userCreate) => this.users$.pipe(
           take(1),
@@ -55,14 +55,14 @@ export class UsersService {
       })
   }
 
-  updateUserById(id: number, userActualizado: updateUser): void {
-    this.httpClient.put('http://localhost:3000/users/' + id, userActualizado).subscribe({
+  updateUserById(id: number, userActualizado: updateUser, token:string): void {
+    this.httpClient.put(environment.baseUrl +'users' + id, { ...userActualizado, token }).subscribe({
       next: () => this.loadUsers(),
     })
   }
 
   deleteUserById(id: number): void {
-    this.httpClient.delete('http://localhost:3000/users/' + id)
+    this.httpClient.delete(environment.baseUrl +'users' + id)
       .subscribe({
         next: () => this.loadUsers(),
       })

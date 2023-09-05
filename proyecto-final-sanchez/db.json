@@ -1,40 +1,49 @@
 {
   "users": [
     {
-      "name": "test",
-      "email": "test@mail.com",
+      "name": "admin",
+      "email": "admin@email.com",
       "password": "12345678",
-      "lastname": "test",
+      "lastname": "admin",
       "token": "aG1Ptx4ZBtwJCAoyjxQy",
-      "id": 1
+      "id": 1,
+      "role": "ADMINISTRADOR"
     },
     {
       "name": "usuario",
-      "email": "b@hotmail.com",
+      "email": "u1@email.com",
       "lastname": "uno",
       "password": "12345678",
       "token": "yFKPbM27383r8tikXLVZ",
-      "id": 2
-    }
-  ],
-  "teachers": [
-    {
-      "name": "profesor",
-      "email": "p1@email.com",
-      "lastname": "uno",
-      "id": 1
+      "id": 2,
+      "role": "USUARIO"
     },
     {
-      "name": "profesor",
-      "email": "p2@email.com",
+      "name": "usuario",
+      "email": "u2@email.com",
       "lastname": "dos",
-      "id": 2
+      "password": "12345678",
+      "role": "USUARIO",
+      "token": "LsCuKP8Onyu2wvuSHRXx",
+      "id": 3
     },
     {
-      "name": "profesor",
-      "email": "p3@email.com",
+      "name": "usuario",
+      "email": "u3@email.com",
       "lastname": "tres",
-      "id": 3
+      "password": "12345678",
+      "role": "ADMINISTRADOR",
+      "token": "MJZMkjCq88NKjldnt8aY",
+      "id": 4
+    },
+    {
+      "name": "usuario",
+      "email": "u4@email.com",
+      "lastname": "cuatro",
+      "password": "12345678",
+      "role": "USUARIO",
+      "token": "EemwZ3KiBnio12nUmBc8",
+      "id": 5
     }
   ],
   "students": [
@@ -58,6 +67,138 @@
       "age": 25,
       "lastname": "tres",
       "id": 3
+    },
+    {
+      "name": "estudiante",
+      "email": "e4@email.com",
+      "age": 28,
+      "lastname": "cuatro",
+      "id": 4
+    },
+    {
+      "name": "estudiante",
+      "email": "e5@email.com",
+      "age": 23,
+      "lastname": "cinco",
+      "id": 5
+    },
+    {
+      "name": "estudiante",
+      "email": "e6@email.com",
+      "age": 24,
+      "lastname": "seis",
+      "id": 6
+    },
+    {
+      "name": "estudiante",
+      "email": "e7@email.com",
+      "age": 23,
+      "lastname": "siete",
+      "id": 7
+    },
+    {
+      "name": "estudiante",
+      "email": "e8@email.com",
+      "age": 25,
+      "lastname": "ocho",
+      "id": 8
+    },
+    {
+      "name": "estudiante",
+      "email": "e9@email.com",
+      "age": 27,
+      "lastname": "nueve",
+      "id": 9
+    },
+    {
+      "name": "estudiante",
+      "email": "e10@email.com",
+      "age": 26,
+      "lastname": "dies",
+      "id": 10
+    }
+  ],
+  "courses": [
+    {
+      "name": "Desarrollo Web",
+      "id": 1
+    },
+    {
+      "name": "Angular",
+      "id": 2
+    },
+    {
+      "name": "Backend",
+      "id": 3
+    },
+    {
+      "name": "Javascript",
+      "id": 4
+    },
+    {
+      "name": "React Js",
+      "id": 5
+    },
+    {
+      "name": "Ciberseguridad",
+      "id": 6
+    }
+  ],
+  "inscriptions": [
+    {
+      "courseId": 1,
+      "studentId": 1,
+      "id": 1
+    },
+    {
+      "courseId": 1,
+      "studentId": 2,
+      "id": 2
+    },
+    {
+      "courseId": 1,
+      "studentId": 3,
+      "id": 3
+    },
+    {
+      "courseId": 4,
+      "studentId": 7,
+      "id": 4
+    },
+    {
+      "courseId": 6,
+      "studentId": 5,
+      "id": 5
+    },
+    {
+      "courseId": 2,
+      "studentId": 4,
+      "id": 6
+    },
+    {
+      "courseId": 2,
+      "studentId": 10,
+      "id": 7
+    },
+    {
+      "courseId": 5,
+      "studentId": 9,
+      "id": 8
+    },
+    {
+      "courseId": 3,
+      "studentId": 8,
+      "id": 9
+    },
+    {
+      "courseId": 4,
+      "studentId": 6,
+      "id": 10
+    },
+    {
+      "courseId": 5,
+      "studentId": 3,
+      "id": 11
     }
   ]
 }

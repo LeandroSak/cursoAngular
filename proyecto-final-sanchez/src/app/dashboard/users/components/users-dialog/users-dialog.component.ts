@@ -9,19 +9,25 @@ import { User } from '../../models';
   styleUrls: ['./users-dialog.component.css']
 })
 export class UsersDialogComponent {
+  editingUser?: User;
+
   title:string="Crear Usuario"
 
   nameControl = new FormControl<string | null>(null, [Validators.required,Validators.minLength(3),Validators.pattern('[a-zA-Z ]*')]);
   lastNameControl = new FormControl<string | null>(null, [Validators.required,Validators.minLength(3),Validators.pattern('[a-zA-Z ]*')]);
   emailControl = new FormControl<string | null>(null, [Validators.required,Validators.email]);
   passwordControl = new FormControl<string | null>(null, [Validators.required, Validators.minLength(8)]);
+  roleControl = new FormControl<string | null>(null, [Validators.required]);
+ 
 
 
   userForm = new FormGroup({
     name: this.nameControl,
     lastname: this.lastNameControl,
     email: this.emailControl,
-    password: this.passwordControl
+    password: this.passwordControl,
+    role:this.roleControl,
+   
   });
   constructor(
     private dialogRef: MatDialogRef<UsersDialogComponent>,
@@ -31,14 +37,15 @@ export class UsersDialogComponent {
     this.nameControl.setValue(this.data.name);
     this.lastNameControl.setValue(this.data.lastname);
     this.emailControl.setValue(this.data.email);
-    this.passwordControl.setValue(this.data.password)
+    this.passwordControl.setValue(this.data.password);
+    this.roleControl.setValue(this.data.role)
   }}
 
   onSubmit(): void {
     if (this.userForm.invalid) {
       this.userForm.markAllAsTouched();
-    } else {
-      this.dialogRef.close(this.userForm.value);
-    }
-  }
+    }else {
+        this.dialogRef.close(this.userForm.value);
+      }
+}
 }

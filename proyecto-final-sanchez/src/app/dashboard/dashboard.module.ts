@@ -5,16 +5,19 @@ import { SharedModule } from '../shared/shared.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { StudentsModule } from './students/students.module';
-import { TeachersModule } from './teachers/teachers.module';
 import { UsersModule } from './users/users.module';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { MatListModule } from '@angular/material/list'
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { CoursesModule } from './courses/courses.module';
+import { IncriptionModule } from './inscription/inscription.module';
+
 @NgModule({
   declarations: [
     DashboardComponent,
-    HomeComponent
+    HomeComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -22,11 +25,12 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     MatSidenavModule,
     MatToolbarModule,
     StudentsModule,
-    TeachersModule,
     RouterModule,
     UsersModule,
     MatListModule,
-    DashboardRoutingModule
+    CoursesModule,
+    IncriptionModule,
+    DashboardRoutingModule,
   ],
   exports:[
     DashboardComponent

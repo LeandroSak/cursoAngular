@@ -5,6 +5,8 @@ import { MatDialog } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 import { StudentsService } from './students.service';
 import { Observable } from 'rxjs';
+import { selectIsAdmin } from 'src/app/store/auth/auth.selectors';
+import { Store } from '@ngrx/store';
 
 
 @Component({
@@ -14,16 +16,19 @@ import { Observable } from 'rxjs';
 })
 export class StudentsComponent {
   public students: Observable<Student[]>;
+  public selectIsAdmin$: Observable<boolean>;
 constructor(
   private matDialog: MatDialog,
   private studentService: StudentsService,
+  private store: Store
 ) {
   this.studentService.loadStudents();
   this.students = this.studentService.getStudents()
+  this.selectIsAdmin$ = this.store.select(selectIsAdmin);
 
   }
 
-  onCreateUser(): void {
+  onCreateStudent(): void {
     this.matDialog
       .open(StudentsDialogComponent)
       .afterClosed()

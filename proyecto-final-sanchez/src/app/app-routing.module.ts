@@ -19,8 +19,8 @@ const routes: Routes = [
       },
     {
         path: '**',
-        redirectTo: '/dashboard/users'
-    },
+        redirectTo: '/dashboard/home'
+    }
 ];
 
 @NgModule({

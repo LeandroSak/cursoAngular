@@ -15,12 +15,16 @@ import { HomeComponent } from "./home/home.component";
         loadChildren: () => import('./users/users.module').then((m) => m.UsersModule),
       },
       {
-        path: 'teachers',
-        loadChildren: () => import('./teachers/teachers.module').then((m) => m.TeachersModule)
-      },
-      {
         path: 'students',
        loadChildren: () => import('./students/students.module').then((m) => m.StudentsModule),
+      },
+      {
+        path: 'courses',
+       loadChildren: () => import('./courses/courses.module').then((m) => m.CoursesModule),
+      },
+      {
+        path: 'inscriptions',
+       loadChildren: () => import('./inscription/inscription.module').then((m) => m.IncriptionModule),
       },
       
 

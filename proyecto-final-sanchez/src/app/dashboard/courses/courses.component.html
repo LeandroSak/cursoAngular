@@ -1,0 +1,9 @@
+<h4 appTitleSize class="text-center">Cursos</h4>
+<div *ngIf="selectIsAdmin$ | async" class="m-4 d-flex justify-content-end">
+    <button (click)="onCreateCourse()" mat-flat-button color="primary" type="button">
+        <mat-icon>add</mat-icon>
+        Crear Curso
+    </button>
+</div>
+<app-courses-table [dataSource]="(courses | async) || []" (deleteCourse)="onDeleteCourse($event)"
+    (editCourse)="onEditCourse($event)"></app-courses-table>

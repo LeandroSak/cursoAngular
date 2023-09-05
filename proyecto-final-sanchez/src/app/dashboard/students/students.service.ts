@@ -3,7 +3,7 @@ import { Student, createStudent, updateStudent } from './models';
 import { BehaviorSubject, Observable, map, mergeMap, take } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
-
+import { environment } from 'src/app/environment/environment';
 
 
 @Injectable({
@@ -19,7 +19,7 @@ export class StudentsService {
 
 
   loadStudents(): void {
-    this.httpClient.get<Student[]>('http://localhost:3000/students', {
+    this.httpClient.get<Student[]>(environment.baseUrl +'students', {
     }).subscribe({
       next: (response) => {
         this._students$.next(response);
@@ -41,7 +41,7 @@ export class StudentsService {
 
 
   createStudent(student: createStudent): void {
-    this.httpClient.post<Student>('http://localhost:3000/students', student)
+    this.httpClient.post<Student>(environment.baseUrl +'students', student)
       .pipe(
         mergeMap((studentsCreate) => this.students$.pipe(
           take(1),
@@ -58,14 +58,14 @@ export class StudentsService {
   }
 
   updateStudentById(id: number, usuarioActualizado: updateStudent): void {
-    this.httpClient.put('http://localhost:3000/students/' + id, usuarioActualizado).subscribe({
+    this.httpClient.put(environment.baseUrl +'students' + id, usuarioActualizado).subscribe({
       next: () => this.loadStudents(),
     })
   }
 
 
   deleteStudentById(id: number): void {
-    this.httpClient.delete('http://localhost:3000/students/' + id)
+    this.httpClient.delete(environment.baseUrl +'students' + id)
       .subscribe({
         next: () => this.loadStudents(),
       })
